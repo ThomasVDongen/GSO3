@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
  */
 public class Time implements ITime {
 
-    private GregorianCalendar gc;
+    public GregorianCalendar gc;
 
     /**
      * creation of a time-object with year y, month m, day d, hours h and
@@ -54,19 +54,19 @@ public class Time implements ITime {
         int day_of_week = gc.get(GregorianCalendar.DAY_OF_WEEK);
         switch (day_of_week) {
             case GregorianCalendar.SUNDAY:
-                return DayInWeek.FRI;
-            case GregorianCalendar.MONDAY:
-                return DayInWeek.SAT;
-            case GregorianCalendar.TUESDAY:
                 return DayInWeek.SUN;
-            case GregorianCalendar.WEDNESDAY:
+            case GregorianCalendar.MONDAY:
                 return DayInWeek.MON;
-            case GregorianCalendar.THURSDAY:
+            case GregorianCalendar.TUESDAY:
                 return DayInWeek.TUE;
-            case GregorianCalendar.FRIDAY:
+            case GregorianCalendar.WEDNESDAY:
                 return DayInWeek.WED;
-            case GregorianCalendar.SATURDAY:
+            case GregorianCalendar.THURSDAY:
                 return DayInWeek.THU;
+            case GregorianCalendar.FRIDAY:
+                return DayInWeek.FRI;
+            case GregorianCalendar.SATURDAY:
+                return DayInWeek.SAT;
             default:
                 return null;
         }
