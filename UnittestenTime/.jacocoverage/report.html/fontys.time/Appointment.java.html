@@ -17,18 +17,18 @@ public class Appointment{
     private final ITimeSpan timespan;
     private final ArrayList&lt;Contact&gt; contacts;
     
-<span class="nc" id="L20">    public Appointment(String subject, ITimeSpan timespan) {</span>
-<span class="nc" id="L21">        this.subject = subject;</span>
-<span class="nc" id="L22">        this.timespan = timespan;</span>
-<span class="nc" id="L23">        contacts = new ArrayList();</span>
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L20">    public Appointment(String subject, ITimeSpan timespan) {</span>
+<span class="fc" id="L21">        this.subject = subject;</span>
+<span class="fc" id="L22">        this.timespan = timespan;</span>
+<span class="fc" id="L23">        contacts = new ArrayList();</span>
+<span class="fc" id="L24">    }</span>
     
     /**
      * Gets the subject of the appointment
      * @return subject
      */
     public String getSubject() {
-<span class="nc" id="L31">        return subject;</span>
+<span class="fc" id="L31">        return subject;</span>
     }
     
     /**
@@ -36,7 +36,7 @@ public class Appointment{
      * @return timespan
      */
     public ITimeSpan getTimeSpan() {
-<span class="nc" id="L39">        return timespan;</span>
+<span class="fc" id="L39">        return timespan;</span>
     }
     
     /**
@@ -44,7 +44,7 @@ public class Appointment{
      * @return iterator
      */
     public Iterator&lt;Contact&gt; invitees() {
-<span class="nc" id="L47">        return contacts.iterator();</span>
+<span class="fc" id="L47">        return contacts.iterator();</span>
     }
     
     /**
@@ -53,12 +53,12 @@ public class Appointment{
      * @return true if contact can be added
      */
     public boolean addContact(Contact c) {
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        if(contacts.contains(c))</span>
-<span class="nc" id="L57">            return false;</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        if(!c.addAppointment(this))</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if(contacts.contains(c))</span>
+<span class="fc" id="L57">            return false;</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if(!c.addAppointment(this))</span>
 <span class="nc" id="L59">            return false;</span>
-<span class="nc" id="L60">        contacts.add(c);</span>
-<span class="nc" id="L61">        return true;</span>
+<span class="fc" id="L60">        contacts.add(c);</span>
+<span class="fc" id="L61">        return true;</span>
     }
     
     /**
@@ -66,8 +66,8 @@ public class Appointment{
      * @param c contact to be removed
      */
     public void removeContact(Contact c) {
-<span class="nc" id="L69">        c.removeAppointment(this);</span>
-<span class="nc" id="L70">        contacts.remove(c);</span>
-<span class="nc" id="L71">    }</span>
+<span class="fc" id="L69">        c.removeAppointment(this);</span>
+<span class="fc" id="L70">        contacts.remove(c);</span>
+<span class="fc" id="L71">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
