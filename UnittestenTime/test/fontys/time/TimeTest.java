@@ -43,6 +43,7 @@ public class TimeTest {
     /**
      * Test of getDayInWeek method, of class Time.
      */
+    
     @Test
     public void testGetDayInWeek() {
         System.out.println("getDayInWeek");
