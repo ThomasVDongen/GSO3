@@ -105,9 +105,10 @@ public class TimeSpanTest {
     }
     
     @Test
+    (expected=IllegalArgumentException.class)
     public void testSetBeginTimeException() {
         System.out.println("setBeginTime");
-        ITime beginTime = new Time(2016, 9, 30, 0, 0);
+        ITime beginTime = new Time(2016, 10, 29, 0, 0);
         TimeSpan instance = timeSpan;
         instance.setBeginTime(beginTime);
     }
@@ -155,11 +156,28 @@ public class TimeSpanTest {
     @Test
     public void testChangeLengthWith() {
         System.out.println("changeLengthWith");
-        int minutes = 0;
-        TimeSpan instance = null;
+        int minutes = 5;
+        ITime expResult = new Time(2016, 9, 29, 0, 5);
+        ITimeSpan instance = timeSpan;
         instance.changeLengthWith(minutes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        assertEquals(timeSpan.getEndTime(), expResult);
+        
+ 
+    }
+    
+    @Test
+    (expected=IllegalArgumentException.class)
+    public void testChangeLengthTimeException() {
+        System.out.println("Change length exception");
+        TimeSpan instance = timeSpan;
+        int minutes = -10;
+        instance = new TimeSpan(new Time(2016, 9, 29, 0, 0), new Time(2016, 9, 29, 0, 5));
+        try {
+            instance.changeLengthWith(minutes);
+        } catch(IllegalArgumentException iEx){
+            assertTrue(true);
+        }
     }
 
     /**
@@ -168,13 +186,18 @@ public class TimeSpanTest {
     @Test
     public void testIsPartOf() {
         System.out.println("isPartOf");
-        ITimeSpan timeSpan = null;
-        TimeSpan instance = null;
-        boolean expResult = false;
-        boolean result = instance.isPartOf(timeSpan);
+        ITimeSpan timeSpan1 = new TimeSpan(new Time(2016, 9, 28, 0, 1), new Time(2016, 9, 28, 0, 5));
+        TimeSpan instance = timeSpan;
+        boolean expResult = true;
+        boolean expResultF = false;
+        boolean result = instance.isPartOf(timeSpan1);
+
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ITimeSpan timeSpan2 = new TimeSpan(new Time(2000, 0, 0, 0, 10), new Time(2001, 0, 0, 0, 20));
+        boolean result2 = instance.isPartOf(timeSpan2);
+        
+        assertEquals(expResultF, result2);
     }
 
     /**
@@ -183,13 +206,18 @@ public class TimeSpanTest {
     @Test
     public void testUnionWith() {
         System.out.println("unionWith");
-        ITimeSpan timeSpan = null;
-        TimeSpan instance = null;
-        ITimeSpan expResult = null;
+        ITimeSpan timeSpan = new TimeSpan(new Time(2016, 9, 28, 0, 1), new Time(2016, 9, 28, 0, 5));
+        ITimeSpan instance = timeSpan;
+        ITimeSpan expResult = new TimeSpan(new Time(2016, 9, 28, 0, 1), new Time(2016, 9, 28, 0, 5));
         ITimeSpan result = instance.unionWith(timeSpan);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        timeSpan = new TimeSpan(new Time(2016, 9, 28, 0, 1), new Time(2016, 9, 28, 0, 10));
+        instance = timeSpan;
+        expResult = new TimeSpan(new Time(2016, 9, 28, 0, 1), new Time(2016, 9, 28, 0, 10));
+        result = instance.unionWith(timeSpan);
+        assertEquals(expResult, result);
+        
     }
 
     /**
@@ -198,8 +226,8 @@ public class TimeSpanTest {
     @Test
     public void testIntersectionWith() {
         System.out.println("intersectionWith");
-        ITimeSpan timeSpan = null;
-        TimeSpan instance = null;
+        ITimeSpan timeSpan = new TimeSpan(new Time(2016, 9, 28, 0, 1), new Time(2016, 9, 28, 0, 5));
+        ITimeSpan instance = timeSpan;
         ITimeSpan expResult = null;
         ITimeSpan result = instance.intersectionWith(timeSpan);
         assertEquals(expResult, result);

@@ -62,7 +62,7 @@ public class TimeTest {
         DayInWeek.valueOf("THU");
         DayInWeek.valueOf("FRI");
         DayInWeek.valueOf("SAT");
-        DayInWeek.valueOf("SUn");
+        DayInWeek.valueOf("SUN");
         
     }
     
