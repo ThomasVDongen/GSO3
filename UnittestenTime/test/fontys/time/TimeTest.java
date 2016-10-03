@@ -54,6 +54,18 @@ public class TimeTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void callEnum() {
+        DayInWeek.valueOf("MON");
+        DayInWeek.valueOf("TUE");
+        DayInWeek.valueOf("WED");
+        DayInWeek.valueOf("THU");
+        DayInWeek.valueOf("FRI");
+        DayInWeek.valueOf("SAT");
+        DayInWeek.valueOf("SUn");
+        
+    }
+    
 
     @Test
     public void testGetDayInWeekMon() {

@@ -95,21 +95,21 @@ public class TimeSpanTest {
     @Test
     public void testSetBeginTime() {
         System.out.println("setBeginTime");
-        ITime beginTime = new Time(2016, 9, 25, 0, 0);
-        TimeSpan instance = timeSpan;
+        ITime beginTime = new Time(2016, 5, 8, 21, 50);
+        TimeSpan instance = new TimeSpan(new Time(2016, 5, 8, 18, 50), new Time(1993, 5, 8, 20, 50));
         instance.setBeginTime(beginTime);
-        ITime expResult = beginTime;
-        assertEquals(expResult, instance.getBeginTime());
+
+        beginTime = new Time(2016, 5, 8, 17, 50);
+        instance.setBeginTime(beginTime);
+        assertTrue(beginTime.compareTo(instance.getBeginTime()) == 0);
     }
     
     @Test
     public void testSetBeginTimeException() {
         System.out.println("setBeginTime");
-        ITime beginTime = new Time(2016, 9, 25, 0, 0);
+        ITime beginTime = new Time(2016, 9, 30, 0, 0);
         TimeSpan instance = timeSpan;
         instance.setBeginTime(beginTime);
-        ITime expResult = beginTime;
-        assertEquals(expResult, instance.getBeginTime());
     }
 
     /**
@@ -118,24 +118,35 @@ public class TimeSpanTest {
     @Test
     public void testSetEndTime() {
         System.out.println("setEndTime");
-        ITime endTime = null;
-        TimeSpan instance = null;
+        ITime endTime = new Time(2016, 5, 8, 17, 50);
+        TimeSpan instance = new TimeSpan(new Time(2016, 5, 8, 18, 50), new Time(2016, 5, 8, 20, 50));
         instance.setEndTime(endTime);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        endTime = new Time(2016, 5, 8, 21, 50);
+        instance.setEndTime(endTime);
+        assertTrue(endTime.compareTo(instance.getEndTime()) == 0);
     }
+    
 
     /**
      * Test of move method, of class TimeSpan.
      */
     @Test
     public void testMove() {
-        System.out.println("move");
-        int minutes = 0;
-        TimeSpan instance = null;
+        System.out.println("testMove");
+        int minutes = 30;
+        TimeSpan instance = new TimeSpan(new Time(2016, 5, 8, 1, 0), new Time(2016, 5, 8, 2, 0));
         instance.move(minutes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ITime begin = new Time(2016, 5, 8, 1, 0);
+        ITime end = new Time(2016, 5, 8, 2, 0);
+        assertTrue(begin.compareTo(instance.getBeginTime()) == 0);
+        assertTrue(end.compareTo(instance.getEndTime()) == 0);
+        minutes = -10;
+        instance = new TimeSpan(new Time(2016, 5, 8, 1, 0), new Time(2016, 5, 2, 2, 0));
+        instance.move(minutes);
+        begin = new Time(2016, 5, 8, 1, 0);
+        end = new Time(2016, 5, 8, 2, 0);
+        assertTrue(begin.compareTo(instance.getBeginTime()) == 0);
+        assertTrue(end.compareTo(instance.getEndTime()) == 0);
     }
 
     /**
