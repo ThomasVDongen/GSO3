@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class TimeSpanTest {
     
+    private TimeSpan timeSpan;
+    
     public TimeSpanTest() {
     }
     
@@ -31,6 +33,7 @@ public class TimeSpanTest {
     
     @Before
     public void setUp() {
+        timeSpan = new TimeSpan(new Time(2016, 9, 27, 0, 0), new Time(2016, 9, 29, 0, 0));
     }
     
     @After
@@ -43,13 +46,13 @@ public class TimeSpanTest {
     @Test
     public void testGetBeginTime() {
         System.out.println("getBeginTime");
-        TimeSpan instance = null;
-        ITime expResult = null;
+        TimeSpan instance = timeSpan;
+        ITime expResult = new Time(2016, 9, 27, 0, 0);
         ITime result = instance.getBeginTime();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+    
+
 
     /**
      * Test of getEndTime method, of class TimeSpan.
@@ -57,12 +60,21 @@ public class TimeSpanTest {
     @Test
     public void testGetEndTime() {
         System.out.println("getEndTime");
-        TimeSpan instance = null;
-        ITime expResult = null;
+        TimeSpan instance = timeSpan;
+        ITime expResult = new Time(2016, 9, 29, 0, 0);
         ITime result = instance.getEndTime();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test the exception throwing of the ctor
+     */
+    
+    @Test
+    (expected=IllegalArgumentException.class)
+    public void testGetBeginTimeException() {
+        System.out.println("getBeginTime");
+        timeSpan = new TimeSpan(new Time(2016, 9, 27, 0, 0), new Time(2016, 9, 27, 0, 0));
     }
 
     /**
@@ -71,12 +83,10 @@ public class TimeSpanTest {
     @Test
     public void testLength() {
         System.out.println("length");
-        TimeSpan instance = null;
-        int expResult = 0;
+        TimeSpan instance = new TimeSpan(new Time(2016, 9, 27, 0, 0), new Time(2016, 9, 27, 0, 1));;
+        int expResult = 60000;
         int result = instance.length();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,11 +95,21 @@ public class TimeSpanTest {
     @Test
     public void testSetBeginTime() {
         System.out.println("setBeginTime");
-        ITime beginTime = null;
-        TimeSpan instance = null;
+        ITime beginTime = new Time(2016, 9, 25, 0, 0);
+        TimeSpan instance = timeSpan;
         instance.setBeginTime(beginTime);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ITime expResult = beginTime;
+        assertEquals(expResult, instance.getBeginTime());
+    }
+    
+    @Test
+    public void testSetBeginTimeException() {
+        System.out.println("setBeginTime");
+        ITime beginTime = new Time(2016, 9, 25, 0, 0);
+        TimeSpan instance = timeSpan;
+        instance.setBeginTime(beginTime);
+        ITime expResult = beginTime;
+        assertEquals(expResult, instance.getBeginTime());
     }
 
     /**

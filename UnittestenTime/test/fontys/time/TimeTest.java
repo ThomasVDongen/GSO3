@@ -35,7 +35,7 @@ public class TimeTest {
     
     @Before
     public void setUp() {
-        time = new Time(2016, 9, 20, 11, 25);
+        time = new Time(2016, 9, 27, 1, 1);
         
     }
     
@@ -43,8 +43,10 @@ public class TimeTest {
     public void tearDown() {
     }
 
-    
-        @Test
+    /**
+    * Test of getDayInWeek method, of class Time.
+    */
+    @Test
     public void testGetDayInWeek() {
         System.out.println("getDayInWeek");
         DayInWeek expResult = DayInWeek.TUE;
@@ -52,9 +54,7 @@ public class TimeTest {
         assertEquals(expResult, result);
     }
     
-    /**
-     * Test of getDayInWeek method, of class Time.
-     */
+
     @Test
     public void testGetDayInWeekMon() {
         System.out.println("getDayInWeek");
