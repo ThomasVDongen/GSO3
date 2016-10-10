@@ -9,8 +9,11 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -24,10 +27,13 @@ public class AEXBanner extends Canvas {
     static final Dimension WINDOWDIMENSION = new Dimension(WIDTH, HEIGHT);
     boolean running = false;
     long timing = 0;
+    int stringPos = 0;
+    String bannerText = "I am a text :D";
 
     public void start() {
 
         if (!running) {
+            running = true;
             run();
         }
 
@@ -38,6 +44,11 @@ public class AEXBanner extends Canvas {
         while (running) {
 
             update();
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AEXBanner.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -51,6 +62,23 @@ public class AEXBanner extends Canvas {
         }
 
         Graphics g = bs.getDrawGraphics();
+        g.clearRect(0, 0, WIDTH + 32, HEIGHT);
+        g.setColor(Color.YELLOW);
+        g.setFont(new Font("Dialog", Font.PLAIN, 28));
+        int stringWidth = g.getFontMetrics().stringWidth(bannerText + "    ");
+
+        
+        g.drawString(bannerText, stringPos - stringWidth, 28);
+        
+        if(stringPos > WIDTH + stringWidth + 32){
+            stringPos = 0;
+        }
+        
+        stringPos++;
+        
+
+        
+        timing++;
         
         g.dispose();
         bs.show();
