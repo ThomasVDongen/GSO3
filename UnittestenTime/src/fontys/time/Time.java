@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
  */
 public class Time implements ITime {
 
-    private GregorianCalendar gc;
+    public GregorianCalendar gc;
 
     /**
      * creation of a time-object with year y, month m, day d, hours h and

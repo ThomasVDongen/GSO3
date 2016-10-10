@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Contact.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;UnittestenTime&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">fontys.time</a> &gt; <span class="el_source">Contact.java</span></div><h1>Contact.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fontys.time;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ *
+ * @author Thomas
+ */
+public class Contact {
+    private final String name;
+    private final ArrayList&lt;Appointment&gt; appointments;
+    
+<span class="fc" id="L19">    public Contact(String name) {</span>
+<span class="fc" id="L20">        this.name = name;</span>
+<span class="fc" id="L21">        appointments = new ArrayList();</span>
+<span class="fc" id="L22">    }</span>
+    
+    /**
+     * Gets the name of the contact
+     * @return name
+     */
+    public String getName() {
+<span class="fc" id="L29">        return name;</span>
+    }
+    
+    /**
+     * Adds appointment to contact
+     * @param a appointment to be added
+     * @return true if appointment is added false if appointment collides with current appointments
+     */
+    boolean addAppointment(Appointment a) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for(Appointment app : appointments) {</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            if(app.getTimeSpan().intersectionWith(a.getTimeSpan()) != null)</span>
+<span class="nc" id="L40">                return false;</span>
+<span class="fc" id="L41">        }</span>
+<span class="fc" id="L42">        appointments.add(a);</span>
+<span class="fc" id="L43">        return true;</span>
+    }
+    
+    /**
+     * Removes appointment from contact
+     * @param a appointment to be removed
+     */
+    void removeAppointment(Appointment a) {
+<span class="fc" id="L51">        appointments.remove(a);</span>
+<span class="fc" id="L52">    }</span>
+    
+    /**
+     * Gets the iterator for the appointment list
+     * @return appointment iterator
+     */
+    public Iterator&lt;Appointment&gt; appointment() {
+<span class="fc" id="L59">        return appointments.iterator();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

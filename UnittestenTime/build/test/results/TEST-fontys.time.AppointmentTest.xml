@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="8" hostname="DESKTOP-S66GTU3" name="fontys.time.TimeTest" skipped="0" tests="26" time="0.107" timestamp="2016-10-03T22:09:37">
+<testsuite errors="0" failures="3" hostname="DESKTOP-S66GTU3" name="fontys.time.AppointmentTest" skipped="0" tests="5" time="0.086" timestamp="2016-10-03T22:09:34">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javac.test.classpath" value=":build/classes:D:\Program Files\JavaIDE\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:D:\Program Files\JavaIDE\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -39,7 +39,7 @@
     <property name="user.name" value="koenv" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner fontys.time.TimeTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Workspace\School\Jaar 2\GSO\Projects\Timeunittest\UnittestenTime\build\test\results\TEST-fontys.time.TimeTest.xml crashfile=D:\Workspace\School\Jaar 2\GSO\Projects\Timeunittest\UnittestenTime\build\junitvmwatcher2677801103215351455.properties propsfile=D:\Workspace\School\Jaar 2\GSO\Projects\Timeunittest\UnittestenTime\build\junit323271045357619133.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner fontys.time.AppointmentTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Workspace\School\Jaar 2\GSO\Projects\Timeunittest\UnittestenTime\build\test\results\TEST-fontys.time.AppointmentTest.xml crashfile=D:\Workspace\School\Jaar 2\GSO\Projects\Timeunittest\UnittestenTime\build\junitvmwatcher8744140227846007064.properties propsfile=D:\Workspace\School\Jaar 2\GSO\Projects\Timeunittest\UnittestenTime\build\junit3481492841117348747.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -165,7 +165,6 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="C:\Users\koenv\AppData\Roaming\NetBeans\8.1" />
-    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="C:\Users\koenv\AppData\Local\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -298,81 +297,28 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="fontys.time.TimeTest" name="testGetHours" time="0.005">
-    <failure message="expected:&lt;11&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;11&gt; but was:&lt;1&gt;
-	at fontys.time.TimeTest.testGetHours(TimeTest.java:243)
+  <testcase classname="fontys.time.AppointmentTest" name="testGetSubject" time="0.012" />
+  <testcase classname="fontys.time.AppointmentTest" name="testGetTimeSpan" time="0.005">
+    <failure message="expected:&lt;fontys.time.TimeSpan@35851384&gt; but was:&lt;fontys.time.TimeSpan@649d209a&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;fontys.time.TimeSpan@35851384&gt; but was:&lt;fontys.time.TimeSpan@649d209a&gt;
+	at fontys.time.AppointmentTest.testGetTimeSpan(AppointmentTest.java:64)
 </failure>
   </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetMonth" time="0.001" />
-  <testcase classname="fontys.time.TimeTest" name="testPlus" time="0.002">
-    <failure message="expected:&lt;45&gt; but was:&lt;fontys.time.Time@6adca536&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;45&gt; but was:&lt;fontys.time.Time@6adca536&gt;
-	at fontys.time.TimeTest.testPlus(TimeTest.java:266)
+  <testcase classname="fontys.time.AppointmentTest" name="testRemoveContact" time="0.002" />
+  <testcase classname="fontys.time.AppointmentTest" name="testInvitees" time="0.001">
+    <failure message="expected:&lt;[fontys.time.Contact@4563e9ab, fontys.time.Contact@11531931]&gt; but was:&lt;java.util.ArrayList$Itr@5e025e70&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[fontys.time.Contact@4563e9ab, fontys.time.Contact@11531931]&gt; but was:&lt;java.util.ArrayList$Itr@5e025e70&gt;
+	at fontys.time.AppointmentTest.testInvitees(AppointmentTest.java:82)
 </failure>
   </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekFri" time="0.002" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekMon" time="0.001">
-    <failure message="expected:&lt;MON&gt; but was:&lt;SAT&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;MON&gt; but was:&lt;SAT&gt;
-	at fontys.time.TimeTest.testGetDayInWeekMon(TimeTest.java:77)
+  <testcase classname="fontys.time.AppointmentTest" name="testAddContact" time="0.001">
+    <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
+	at fontys.time.AppointmentTest.testAddContact(AppointmentTest.java:99)
 </failure>
   </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekSat" time="0.001">
-    <failure message="expected:&lt;SAT&gt; but was:&lt;SUN&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;SAT&gt; but was:&lt;SUN&gt;
-	at fontys.time.TimeTest.testGetDayInWeekSat(TimeTest.java:127)
-</failure>
-  </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekSun" time="0.001">
-    <failure message="expected:&lt;SUN&gt; but was:&lt;MON&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;SUN&gt; but was:&lt;MON&gt;
-	at fontys.time.TimeTest.testGetDayInWeekSun(TimeTest.java:137)
-</failure>
-  </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekThu" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekTue" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekWed" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testCompareTo" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testMonthOutOfRange" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testMonthOutOfRangeUnder" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetYear" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testMinuteOutOfRangeUnder" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testHourOutOfRange" time="0.001" />
-  <testcase classname="fontys.time.TimeTest" name="callEnum" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeek" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testDayOutOfRange" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testMinuteOutOfRange" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekNull" time="0.001">
-    <failure message="expected:&lt;null&gt; but was:&lt;SAT&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;null&gt; but was:&lt;SAT&gt;
-	at fontys.time.TimeTest.testGetDayInWeekNull(TimeTest.java:148)
-</failure>
-  </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testDifference" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDay" time="0.001">
-    <failure message="expected:&lt;20&gt; but was:&lt;27&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;20&gt; but was:&lt;27&gt;
-	at fontys.time.TimeTest.testGetDay(TimeTest.java:232)
-</failure>
-  </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetMinutes" time="0.0">
-    <failure message="expected:&lt;25&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;25&gt; but was:&lt;1&gt;
-	at fontys.time.TimeTest.testGetMinutes(TimeTest.java:254)
-</failure>
-  </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testDayOutOfRangeUnder" time="0.001" />
-  <testcase classname="fontys.time.TimeTest" name="testHourOutOfRangeUnder" time="0.001" />
-  <system-out><![CDATA[getHours
-getMonth
-plus
-getDayInWeek
-getDayInWeek
-getDayInWeek
-getDayInWeek
-getDayInWeek
-getDayInWeek
-getDayInWeek
-compareTo
-getYear
-getDayInWeek
-getDayInWeek
-difference
-getDay
-getMinutes
+  <system-out><![CDATA[getSubject
+getTimeSpan
+removeContact
+invitees
+addContact
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
