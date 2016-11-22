@@ -5,6 +5,9 @@
  */
 package aexbanner.beurs;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -31,14 +34,28 @@ public class MockEffectenbeurs implements IEffectenbeurs {
     @Override
     public List<IFonds> getKoersen() {
 
+        for (IFonds fonds : fondsen) {
+            BigDecimal koers = new BigDecimal(ran.nextDouble()*200);
+            koers = koers.setScale(2, RoundingMode.CEILING);
+            fonds.setKoers(koers);
+            
+            System.out.println(fonds.getKoers().toString());
+        }
+        
         return fondsen;
     }
 
     public MockEffectenbeurs(int fondsCount) {
 
         ran = new Random();
-        
-        
+        this.fondsCount = fondsCount;
+        this.fondsen = new ArrayList<IFonds>();
+        while (fondsen.size() < fondsCount) {
+            
+            IFonds mockFonds = new MockFonds(getSaltString());
+            
+            fondsen.add(mockFonds);
+        }
 
     }
 
@@ -46,7 +63,7 @@ public class MockEffectenbeurs implements IEffectenbeurs {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < 18) {
+        while (salt.length() < 3) {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }

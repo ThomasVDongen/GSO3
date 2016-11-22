@@ -85,7 +85,6 @@ public class AEXBanner extends Application {
     }
 
     public static void main(String[] args) {
-
         launch(args);
     }
 

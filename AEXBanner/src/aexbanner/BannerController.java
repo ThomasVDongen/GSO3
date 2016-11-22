@@ -29,7 +29,7 @@ public class BannerController {
     public BannerController(AEXBanner banner) {
 
         this.banner = banner;
-        this.effBeurs = new MockEffectenbeurs();
+        this.effBeurs = new MockEffectenbeurs(16);
 
         this.pollingTimer = new Timer();
         

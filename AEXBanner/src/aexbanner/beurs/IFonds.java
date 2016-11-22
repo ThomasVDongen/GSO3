@@ -15,6 +15,8 @@ public interface IFonds {
     
     public String getNaam();
     
-    public BigDecimal getoers();
+    public BigDecimal getKoers();
+    
+    public void setKoers(BigDecimal koers);
     
 }
