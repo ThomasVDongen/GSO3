@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author koenv
+ * @author koenv, Thomas
  */
 public class BannerController {
 
@@ -24,41 +24,23 @@ public class BannerController {
     private TimerTask update = new TimerTask() {
         @Override
         public void run() {
-
             String koersen = new String();
-
             effBeurs.getKoersen();
-
             for (IFonds fonds : effBeurs.getKoersen()) {
-
                 koersen += "[ " + fonds.getNaam() + " | " + fonds.getKoers().toString() + " ]" ;
             }
-           
-            
-            try
-            {
-                banner.setKoersen(koersen);
-            }
-            catch(NullPointerException nEx)
-            {
-                banner.setKoersen(koersen);
-            }
-
+            banner.setKoersen(koersen);
         }
     };
 
     public BannerController(AEXBanner banner) {
-
         this.banner = banner;
         this.effBeurs = new MockEffectenbeurs(16);
-
         this.pollingTimer = new Timer();
-
         pollingTimer.scheduleAtFixedRate(update, 2000, 2000);
     }
 
     public void stop() {
-
         pollingTimer.cancel();
 
     }

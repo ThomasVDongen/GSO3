@@ -13,7 +13,7 @@ import java.util.Random;
 
 /**
  *
- * @author koenv
+ * @author koenv, Thomas
  */
 public class MockEffectenbeurs implements IEffectenbeurs {
 
@@ -38,8 +38,7 @@ public class MockEffectenbeurs implements IEffectenbeurs {
             BigDecimal koers = new BigDecimal(ran.nextDouble()*200);
             koers = koers.setScale(2, RoundingMode.CEILING);
             fonds.setKoers(koers);
-            
-            System.out.println(fonds.getKoers().toString());
+          
         }
         
         return fondsen;

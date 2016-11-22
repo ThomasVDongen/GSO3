@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author koenv
+ * @author koenv, Thomas
  */
 public interface IFonds {
     

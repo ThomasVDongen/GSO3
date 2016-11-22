@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author koenv
+ * @author koenv, Thomas
  */
 public class Effectenbeurs implements IEffectenbeurs {
 

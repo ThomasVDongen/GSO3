@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+/*
+author @koenv, Thomas
+*/
 package aexbanner;
 
 import javafx.animation.AnimationTimer;
@@ -60,13 +65,10 @@ public class AEXBanner extends Application {
                 if (lag >= NANO_TICKS) {
                     if (text.getLayoutBounds().getWidth() + textPosition <= 0){
                         textPosition = WIDTH;
-                        System.out.println("0");
                     }
                     else{
-                        System.out.println(text.getLayoutBounds().getWidth() + textPosition);
                         textPosition = textPosition - 10;
-                        text.relocate(textPosition, 0);
-                        
+                        text.relocate(textPosition, 0);  
                     }
                     prevUpdate = now;
                     
