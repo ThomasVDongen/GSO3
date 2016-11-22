@@ -7,6 +7,7 @@ package aexbanner;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -32,19 +33,22 @@ public class AEXBanner extends Application {
 
         controller = new BannerController(this);
 
-        Font font = new Font("Arial", HEIGHT);
+        Font font = new Font("Consolas", HEIGHT);
         text = new Text();
         text.setFont(font);
-        text.setFill(Color.BLACK);
+        text.setFill(Color.YELLOW);
 
         Pane root = new Pane();
+        root.setStyle("-fx-background-color: #000000");
         root.getChildren().add(text);
+        
         Scene scene = new Scene(root, WIDTH, HEIGHT);
-
+        primaryStage.setResizable(false);
         primaryStage.setTitle("AEX banner");
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.toFront();
+        
 
         // Start animation: text moves from right to left
         animationTimer = new AnimationTimer() {
@@ -54,10 +58,18 @@ public class AEXBanner extends Application {
             public void handle(long now) {
                 long lag = now - prevUpdate;
                 if (lag >= NANO_TICKS) {
-                    // calculate new location of text
-                    // TODO
-                    text.relocate(textPosition, 0);
+                    if (text.getLayoutBounds().getWidth() + textPosition <= 0){
+                        textPosition = WIDTH;
+                        System.out.println("0");
+                    }
+                    else{
+                        System.out.println(text.getLayoutBounds().getWidth() + textPosition);
+                        textPosition = textPosition - 10;
+                        text.relocate(textPosition, 0);
+                        
+                    }
                     prevUpdate = now;
+                    
                 }
             }
 
