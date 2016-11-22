@@ -22,7 +22,18 @@ public class BannerController {
     private TimerTask update = new TimerTask() {
         @Override
         public void run() {
+
+            String koersen = new String();
+
             effBeurs.getKoersen();
+
+            for (IFonds fonds : effBeurs.getKoersen()) {
+
+                koersen += "[ " + fonds.getNaam() + " | " + fonds.getKoers().toString() + " ]" ;
+            }
+            
+            banner.setKoersen(koersen);
+
         }
     };
 
@@ -32,10 +43,9 @@ public class BannerController {
         this.effBeurs = new MockEffectenbeurs(16);
 
         this.pollingTimer = new Timer();
-        
+
         pollingTimer.scheduleAtFixedRate(update, 0, 2000);
     }
-
 
     public void stop() {
 
