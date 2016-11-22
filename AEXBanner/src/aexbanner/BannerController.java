@@ -8,6 +8,8 @@ package aexbanner;
 import aexbanner.beurs.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,8 +33,16 @@ public class BannerController {
 
                 koersen += "[ " + fonds.getNaam() + " | " + fonds.getKoers().toString() + " ]" ;
             }
+           
             
-            banner.setKoersen(koersen);
+            try
+            {
+                banner.setKoersen(koersen);
+            }
+            catch(NullPointerException nEx)
+            {
+                banner.setKoersen(koersen);
+            }
 
         }
     };
@@ -44,7 +54,7 @@ public class BannerController {
 
         this.pollingTimer = new Timer();
 
-        pollingTimer.scheduleAtFixedRate(update, 0, 2000);
+        pollingTimer.scheduleAtFixedRate(update, 2000, 2000);
     }
 
     public void stop() {
