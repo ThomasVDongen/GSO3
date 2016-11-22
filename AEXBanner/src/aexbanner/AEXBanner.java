@@ -5,109 +5,47 @@
  */
 package aexbanner;
 
-import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author koenv
  */
-public class AEXBanner extends Canvas {
-
-    static final int WIDTH = 640;
-    static final int HEIGHT = 32;
-    static final Dimension WINDOWDIMENSION = new Dimension(WIDTH, HEIGHT);
-    boolean running = false;
-    long timing = 0;
-    int stringPos = 0;
-    String bannerText = "I am a text :D";
-
-    public void start() {
-
-        if (!running) {
-            running = true;
-            run();
-        }
-
-    }
-
-    public void run() {
-
-        while (running) {
-
-            update();
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(AEXBanner.class.getName()).log(Level.SEVERE, null, ex);
+public class AEXBanner extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) {
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Hello World!");
             }
-        }
-
+        });
+        
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+        
+        Scene scene = new Scene(root, 300, 250);
+        
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
-    public void update() {
-
-        BufferStrategy bs = getBufferStrategy();
-        if (bs == null) {
-            createBufferStrategy(3);
-            bs = getBufferStrategy();
-        }
-
-        Graphics g = bs.getDrawGraphics();
-        g.clearRect(0, 0, WIDTH + 32, HEIGHT);
-        g.setColor(Color.YELLOW);
-        g.setFont(new Font("Dialog", Font.PLAIN, 28));
-        int stringWidth = g.getFontMetrics().stringWidth(bannerText + "    ");
-
-        
-        g.drawString(bannerText, stringPos - stringWidth, 28);
-        
-        if(stringPos > WIDTH + stringWidth + 32){
-            stringPos = 0;
-        }
-        
-        stringPos++;
-        
-
-        
-        timing++;
-        
-        g.dispose();
-        bs.show();
-
-    }
-
-    public void stop() {
-        running = false;
-
-    }
-
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-
-        AEXBanner banner = new AEXBanner();
-        banner.setMinimumSize(WINDOWDIMENSION);
-        banner.setMaximumSize(WINDOWDIMENSION);
-        banner.setPreferredSize(WINDOWDIMENSION);
-        banner.setBackground(Color.BLACK);
-        
-        JFrame window = new JFrame("AEXBanner");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setLayout(new BorderLayout());
-        window.add(banner);
-        window.pack();
-        window.setResizable(false);
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
-
-        banner.start();
+        launch(args);
     }
-
+    
 }
