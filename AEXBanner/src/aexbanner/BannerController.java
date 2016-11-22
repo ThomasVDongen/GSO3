@@ -3,34 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package aexbanner;
 
-package aexbanner.client;
-
-import aexbanner.beurs.IEffectenbeurs;
-import aexbanner.beurs.MockEffectenbeurs;
+import aexbanner.beurs.*;
 import java.util.Timer;
+import java.util.TimerTask;
 
+/**
+ *
+ * @author koenv
+ */
 public class BannerController {
 
     private AEXBanner banner;
-    private IEffectenbeurs effectenbeurs;
+    private IEffectenbeurs effBeurs;
     private Timer pollingTimer;
+
+    private TimerTask update = new TimerTask() {
+        @Override
+        public void run() {
+            effBeurs.getKoersen();
+        }
+    };
 
     public BannerController(AEXBanner banner) {
 
         this.banner = banner;
-        this.effectenbeurs = new MockEffectenbeurs();
+        this.effBeurs = new MockEffectenbeurs();
+
+        this.pollingTimer = new Timer();
         
-        // Start polling timer: update banner every two seconds
-        pollingTimer = new Timer();
-        // TODO
+        pollingTimer.scheduleAtFixedRate(update, 0, 2000);
     }
 
-    // Stop banner controller
+
     public void stop() {
-        pollingTimer.cancel();
-        // Stop simulation timer of effectenbeurs
-        // TODO
-    }
-}
 
+        pollingTimer.cancel();
+
+    }
+
+}

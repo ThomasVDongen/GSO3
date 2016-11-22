@@ -15,16 +15,44 @@ import java.util.Random;
 public class MockEffectenbeurs implements IEffectenbeurs {
 
     private Random ran;
+    private List<IFonds> fondsen;
+    private int fondsCount;
     
+    public int getFondsCount() {
+        
+        return fondsCount;
+    }
+    
+    public void setFondsCount(int fondsCount){
+        
+        this.fondsCount = fondsCount;
+    }
+
     @Override
     public List<IFonds> getKoersen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return fondsen;
     }
-    
-    public MockEffectenbeurs() {
-        
+
+    public MockEffectenbeurs(int fondsCount) {
+
         ran = new Random();
         
+        
+
     }
-    
+
+    private String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 18) {
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
+
 }

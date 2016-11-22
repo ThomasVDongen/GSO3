@@ -5,10 +5,16 @@
  */
 package aexbanner.beurs;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author koenv
  */
 public interface IFonds {
+    
+    public String getNaam();
+    
+    public BigDecimal getoers();
     
 }

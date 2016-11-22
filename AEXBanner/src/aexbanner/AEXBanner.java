@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aexbanner.client;
+package aexbanner;
 
-import aexbanner.client.BannerController;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -84,4 +83,10 @@ public class AEXBanner extends Application {
         animationTimer.stop();
         controller.stop();
     }
+
+    public static void main(String[] args) {
+
+        launch(args);
+    }
+
 }
