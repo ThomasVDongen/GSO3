@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="12" hostname="ThomasPC" name="fontys.time.TimeTest" skipped="0" tests="25" time="0.083" timestamp="2017-01-20T13:36:02">
+<testsuite errors="0" failures="11" hostname="ThomasPC" name="fontys.time.TimeTest" skipped="0" tests="24" time="0.076" timestamp="2017-01-20T14:29:36">
   <properties>
     <property name="netbeans.autoupdate.country" value="NL" />
     <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans 8.1\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.1\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -39,7 +39,7 @@
     <property name="user.name" value="Thomas" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner fontys.time.TimeTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\build\test\results\TEST-fontys.time.TimeTest.xml crashfile=C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\build\junitvmwatcher4610185317595773582.properties propsfile=C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\build\junit4205122296584222206.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner fontys.time.TimeTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\build\test\results\TEST-fontys.time.TimeTest.xml crashfile=C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\build\junitvmwatcher2622872678262322218.properties propsfile=C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\build\junit1317456725818828585.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -278,7 +278,7 @@
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.1\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.1\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
     <property name="libs.hamcrest.src" value="" />
-    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\Thomas\AppData\Roaming\NetBeans\8.1\modules\ext\jacocoagent.jar&quot;=includes=fontys.*:fontys.time.*,destfile=&quot;C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\jacoco.exec-683877984980635&quot;" />
+    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\Thomas\AppData\Roaming\NetBeans\8.1\modules\ext\jacocoagent.jar&quot;=includes=fontys.*:fontys.time.*,destfile=&quot;C:\Users\Thomas\Documents\NetBeansProjects\GSO3\GSO3\UnittestenTime\jacoco.exec-687091668624633&quot;" />
     <property name="libs.hibernate4-persistence.classpath" value="C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 8.1\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
     <property name="dist.archive.excludes" value="" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
@@ -300,13 +300,13 @@
   </properties>
   <testcase classname="fontys.time.TimeTest" name="testGetHours" time="0.004">
     <failure message="expected:&lt;11&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;11&gt; but was:&lt;1&gt;
-	at fontys.time.TimeTest.testGetHours(TimeTest.java:232)
+	at fontys.time.TimeTest.testGetHours(TimeTest.java:222)
 </failure>
   </testcase>
   <testcase classname="fontys.time.TimeTest" name="testGetMonth" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testPlus" time="0.001">
-    <failure message="expected:&lt;45&gt; but was:&lt;fontys.time.Time@28f67ac7&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;45&gt; but was:&lt;fontys.time.Time@28f67ac7&gt;
-	at fontys.time.TimeTest.testPlus(TimeTest.java:255)
+  <testcase classname="fontys.time.TimeTest" name="testPlus" time="0.0">
+    <failure message="expected:&lt;45&gt; but was:&lt;fontys.time.Time@35851384&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;45&gt; but was:&lt;fontys.time.Time@35851384&gt;
+	at fontys.time.TimeTest.testPlus(TimeTest.java:245)
 </failure>
   </testcase>
   <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekFri" time="0.002">
@@ -315,7 +315,7 @@
 </failure>
   </testcase>
   <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekMon" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekSat" time="0.0">
+  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekSat" time="0.001">
     <failure message="expected:&lt;SAT&gt; but was:&lt;TUE&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;SAT&gt; but was:&lt;TUE&gt;
 	at fontys.time.TimeTest.testGetDayInWeekSat(TimeTest.java:116)
 </failure>
@@ -330,7 +330,7 @@
 	at fontys.time.TimeTest.testGetDayInWeekThu(TimeTest.java:96)
 </failure>
   </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekTue" time="0.001">
+  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekTue" time="0.0">
     <failure message="expected:&lt;TUE&gt; but was:&lt;THU&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;TUE&gt; but was:&lt;THU&gt;
 	at fontys.time.TimeTest.testGetDayInWeekTue(TimeTest.java:76)
 </failure>
@@ -343,30 +343,25 @@
   <testcase classname="fontys.time.TimeTest" name="testCompareTo" time="0.001" />
   <testcase classname="fontys.time.TimeTest" name="testMonthOutOfRange" time="0.0" />
   <testcase classname="fontys.time.TimeTest" name="testMonthOutOfRangeUnder" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetYear" time="0.001" />
+  <testcase classname="fontys.time.TimeTest" name="testGetYear" time="0.0" />
   <testcase classname="fontys.time.TimeTest" name="testMinuteOutOfRangeUnder" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testHourOutOfRange" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeek" time="0.001">
+  <testcase classname="fontys.time.TimeTest" name="testHourOutOfRange" time="0.001" />
+  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeek" time="0.0">
     <failure message="expected:&lt;TUE&gt; but was:&lt;THU&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;TUE&gt; but was:&lt;THU&gt;
 	at fontys.time.TimeTest.testGetDayInWeek(TimeTest.java:55)
 </failure>
   </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testDayOutOfRange" time="0.001" />
+  <testcase classname="fontys.time.TimeTest" name="testDayOutOfRange" time="0.0" />
   <testcase classname="fontys.time.TimeTest" name="testMinuteOutOfRange" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDayInWeekNull" time="0.001">
-    <failure message="expected:&lt;null&gt; but was:&lt;MON&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;null&gt; but was:&lt;MON&gt;
-	at fontys.time.TimeTest.testGetDayInWeekNull(TimeTest.java:137)
-</failure>
-  </testcase>
   <testcase classname="fontys.time.TimeTest" name="testDifference" time="0.0" />
-  <testcase classname="fontys.time.TimeTest" name="testGetDay" time="0.0">
+  <testcase classname="fontys.time.TimeTest" name="testGetDay" time="0.001">
     <failure message="expected:&lt;20&gt; but was:&lt;27&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;20&gt; but was:&lt;27&gt;
-	at fontys.time.TimeTest.testGetDay(TimeTest.java:221)
+	at fontys.time.TimeTest.testGetDay(TimeTest.java:211)
 </failure>
   </testcase>
-  <testcase classname="fontys.time.TimeTest" name="testGetMinutes" time="0.0">
+  <testcase classname="fontys.time.TimeTest" name="testGetMinutes" time="0.001">
     <failure message="expected:&lt;25&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;25&gt; but was:&lt;1&gt;
-	at fontys.time.TimeTest.testGetMinutes(TimeTest.java:243)
+	at fontys.time.TimeTest.testGetMinutes(TimeTest.java:233)
 </failure>
   </testcase>
   <testcase classname="fontys.time.TimeTest" name="testDayOutOfRangeUnder" time="0.0" />
@@ -383,7 +378,6 @@ getDayInWeek
 getDayInWeek
 compareTo
 getYear
-getDayInWeek
 getDayInWeek
 difference
 getDay
