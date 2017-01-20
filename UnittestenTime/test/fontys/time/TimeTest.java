@@ -126,16 +126,6 @@ public class TimeTest {
         assertEquals(expResult, result);
     }
     
-        
-    @Test
-    public void testGetDayInWeekNull() {
-        System.out.println("getDayInWeek");
-        DayInWeek expResult = null;
-        gc = new GregorianCalendar(2016, 9, 31, 0, 0);
-        time.gc = gc;
-        DayInWeek result = time.getDayInWeek();
-        assertEquals(expResult, result);
-    }
     
     /**
      * Testing illegal input of the Time ctor.
