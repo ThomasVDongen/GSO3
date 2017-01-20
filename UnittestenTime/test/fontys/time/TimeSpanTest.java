@@ -74,7 +74,7 @@ public class TimeSpanTest {
     (expected=IllegalArgumentException.class)
     public void testGetBeginTimeException() {
         System.out.println("getBeginTime");
-        timeSpan = new TimeSpan(new Time(2016, 9, 27, 0, 0), new Time(2016, 9, 27, 0, 0));
+        timeSpan = new TimeSpan(new Time(2016, 9, 27, 0, 0), new Time(2016, 9, 26, 0, 0));
     }
 
     /**
@@ -95,16 +95,16 @@ public class TimeSpanTest {
     @Test
     public void testSetBeginTime() {
         System.out.println("setBeginTime");
-        ITime beginTime = new Time(2016, 9, 25, 0, 0);
+        ITime beginTime = new Time(2016, 9, 30, 0, 0);
         TimeSpan instance = timeSpan;
         instance.setBeginTime(beginTime);
         ITime expResult = beginTime;
         assertEquals(expResult, instance.getBeginTime());
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testSetBeginTimeException() {
-        System.out.println("setBeginTime");
+        System.out.println("setBeginTimeException");
         ITime beginTime = new Time(2016, 9, 25, 0, 0);
         TimeSpan instance = timeSpan;
         instance.setBeginTime(beginTime);
@@ -115,14 +115,24 @@ public class TimeSpanTest {
     /**
      * Test of setEndTime method, of class TimeSpan.
      */
-    @Test
-    public void testSetEndTime() {
-        System.out.println("setEndTime");
-        ITime endTime = null;
-        TimeSpan instance = null;
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetEndTimeException() {
+        System.out.println("setEndTimeException");
+        ITime endTime = new Time(2016, 9, 24, 0 ,0);
+        TimeSpan instance = timeSpan;
         instance.setEndTime(endTime);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+    }
+    /*
+    test the normal setter
+    */
+    @Test
+    public void testSetEndTime(){
+        System.out.println("setEndTimeException");
+        ITime endTime = new Time(2016, 9, 30, 0 ,0);
+        TimeSpan instance = timeSpan;
+        instance.setEndTime(endTime);
+        assertEquals(endTime,timeSpan.getEndTime());
     }
 
     /**
@@ -130,25 +140,44 @@ public class TimeSpanTest {
      */
     @Test
     public void testMove() {
-        System.out.println("move");
-        int minutes = 0;
-        TimeSpan instance = null;
+        System.out.println("test move");
+        int minutes = 30;
+        TimeSpan instance = new TimeSpan(new Time(2017, 5, 8, 18, 20), new Time(2017, 5, 8, 20, 20));
         instance.move(minutes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ITime begin = new Time(2017, 5, 8, 18, 50);
+        ITime end = new Time(2017, 5, 8, 20, 50);
+        assertTrue(begin.compareTo(instance.getBeginTime()) == 0);
+        assertTrue(end.compareTo(instance.getEndTime()) == 0);
+        minutes = -10;
+        instance = new TimeSpan(new Time(2017, 1, 18, 10, 20), new Time(2017, 5, 8, 20, 20));
+        instance.move(minutes);
+        begin = new Time(2017, 1, 18, 10, 20);
+        end = new Time(2017, 5, 8, 20, 10);
+        assertTrue(begin.compareTo(instance.getBeginTime()) == 0);
+        assertTrue(end.compareTo(instance.getEndTime()) == 0);
     }
 
     /**
      * Test of changeLengthWith method, of class TimeSpan.
      */
-    @Test
-    public void testChangeLengthWith() {
-        System.out.println("changeLengthWith");
+    @Test(expected=IllegalArgumentException.class)
+    public void testChangeLengthWith1() {
+        System.out.println("changeLengthWith1");
         int minutes = 0;
-        TimeSpan instance = null;
-        instance.changeLengthWith(minutes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        timeSpan.changeLengthWith(minutes);
+    }
+    
+    /**
+     * 
+     */
+    @Test
+    public void testChangeLengthWith2(){
+        System.out.println("changeLengthWith2");
+        int minutes = 1;
+        int expResult = 1;
+        timeSpan.changeLengthWith(minutes);
+        int result = timeSpan.getEndTime().getMinutes();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -157,13 +186,19 @@ public class TimeSpanTest {
     @Test
     public void testIsPartOf() {
         System.out.println("isPartOf");
-        ITimeSpan timeSpan = null;
-        TimeSpan instance = null;
-        boolean expResult = false;
-        boolean result = instance.isPartOf(timeSpan);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //aanmaken testspans
+        ITimeSpan timeSpan1 = new TimeSpan(new Time(2017, 1, 20, 19, 20), new Time(2017, 1, 20, 21, 20));
+        ITimeSpan timeSpan2 = new TimeSpan(new Time(2017, 1, 20, 17, 20), new Time(2017, 1, 20, 19, 20));
+        ITimeSpan timeSpan3 = new TimeSpan(new Time(2017, 1, 20, 17, 20), new Time(2017, 1, 20, 21, 20));
+        // het objectt aanmaken
+        TimeSpan instance = new TimeSpan(new Time(2017, 1, 20, 18, 20), new Time(2017, 1, 20, 20, 20));
+        boolean result1 = instance.isPartOf(timeSpan1);
+        boolean result2 = instance.isPartOf(timeSpan2);
+        boolean result3 = instance.isPartOf(timeSpan3);
+        //vergelijken
+        assertEquals(false, result1);
+        assertEquals(false, result2);
+        assertEquals(true, result3);
     }
 
     /**
@@ -172,13 +207,30 @@ public class TimeSpanTest {
     @Test
     public void testUnionWith() {
         System.out.println("unionWith");
-        ITimeSpan timeSpan = null;
-        TimeSpan instance = null;
-        ITimeSpan expResult = null;
-        ITimeSpan result = instance.unionWith(timeSpan);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //aanmaken van testspans
+        ITimeSpan timeSpan1 = new TimeSpan(new Time(2017, 1, 20, 19, 20), new Time(2017, 1, 20, 21, 20));
+        ITimeSpan timeSpan2 = new TimeSpan(new Time(2017, 1, 20, 17, 20), new Time(2017, 1, 20, 19, 20));
+        ITimeSpan timeSpan3 = new TimeSpan(new Time(2017, 1, 20, 17, 20), new Time(2017, 1, 20, 21, 20));
+        ITimeSpan timeSpan4 = new TimeSpan(new Time(2017, 1, 20, 15, 20), new Time(2017, 1, 20, 17, 20));
+        ITimeSpan timeSpan5 = new TimeSpan(new Time(2017, 1, 20, 21, 20), new Time(2017, 1, 20, 23, 20));
+        // het objectt aanmaken
+        TimeSpan instance = new TimeSpan(new Time(2017, 1, 20, 18, 20), new Time(2017, 1, 20, 20, 20));
+        //results aangeven
+        ITimeSpan expResult1 = new TimeSpan(new Time(2017, 1, 20, 18, 20), new Time(2017, 1, 20, 21, 20));
+        ITimeSpan expResult2 = new TimeSpan(new Time(2017, 1, 20, 17, 20), new Time(2017, 1, 20, 20, 20));
+        ITimeSpan expResult3 = new TimeSpan(new Time(2017, 1, 20, 17, 20), new Time(2017, 1, 20, 21, 20));
+        //results krijgen
+        ITimeSpan result1 = instance.unionWith(timeSpan1);
+        ITimeSpan result2 = instance.unionWith(timeSpan2);
+        ITimeSpan result3 = instance.unionWith(timeSpan3);
+        ITimeSpan result4 = instance.unionWith(timeSpan4);
+        ITimeSpan result5 = instance.unionWith(timeSpan5);
+        //vergelijken
+        assertTrue((expResult1.getBeginTime().compareTo(result1.getBeginTime()) == 0) && (expResult1.getEndTime().compareTo(result1.getEndTime()) == 0));
+        assertTrue((expResult2.getBeginTime().compareTo(result2.getBeginTime()) == 0) && (expResult2.getEndTime().compareTo(result2.getEndTime()) == 0));
+        assertTrue((expResult3.getBeginTime().compareTo(result3.getBeginTime()) == 0) && (expResult3.getEndTime().compareTo(result3.getEndTime()) == 0));
+        assertEquals(null, result4);
+        assertEquals(null, result5);
     }
 
     /**
@@ -187,13 +239,28 @@ public class TimeSpanTest {
     @Test
     public void testIntersectionWith() {
         System.out.println("intersectionWith");
-        ITimeSpan timeSpan = null;
-        TimeSpan instance = null;
-        ITimeSpan expResult = null;
-        ITimeSpan result = instance.intersectionWith(timeSpan);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ///creating all the testspans
+        ITimeSpan timeSpan1 = new TimeSpan(new Time(2017, 1, 10, 19, 20), new Time(2017, 1, 10, 21, 20));
+        ITimeSpan timeSpan2 = new TimeSpan(new Time(2017, 1, 10, 17, 20), new Time(2017, 1, 10, 19, 20));
+        ITimeSpan timeSpan3 = new TimeSpan(new Time(2017, 1, 10, 17, 20), new Time(2017, 1, 10, 21, 20));
+        ITimeSpan timeSpan4 = new TimeSpan(new Time(2017, 1, 10, 15, 20), new Time(2017, 1, 10, 17, 20));
+        //creating the timespan to test with
+        TimeSpan instance = new TimeSpan(new Time(2017, 1, 10, 18, 20), new Time(2017, 1, 10, 20, 20));
+        //creatint the expected results
+        ITimeSpan expResult1 = new TimeSpan(new Time(2017, 1, 10, 19, 20), new Time(2017, 1, 10, 20, 20));
+        ITimeSpan expResult2 = new TimeSpan(new Time(2017, 1, 10, 18, 20), new Time(2017, 1, 10, 19, 20));
+        ITimeSpan expResult3 = new TimeSpan(new Time(2017, 1, 10, 18, 20), new Time(2017, 1, 10, 20, 20));
+        ITimeSpan expResult4 = null;
+        //starting the tests
+        ITimeSpan result1 = instance.intersectionWith(timeSpan1);
+        ITimeSpan result2 = instance.intersectionWith(timeSpan2);
+        ITimeSpan result3 = instance.intersectionWith(timeSpan3);
+        ITimeSpan result4 = instance.intersectionWith(timeSpan4);
+        //asserting values
+        assertTrue((expResult1.getBeginTime().compareTo(result1.getBeginTime()) == 0) && (expResult1.getEndTime().compareTo(result1.getEndTime()) == 0));
+        assertTrue((expResult2.getBeginTime().compareTo(result2.getBeginTime()) == 0) && (expResult2.getEndTime().compareTo(result2.getEndTime()) == 0));
+        assertTrue((expResult3.getBeginTime().compareTo(result3.getBeginTime()) == 0) && (expResult3.getEndTime().compareTo(result3.getEndTime()) == 0));
+        assertEquals(expResult4, result4);
     }
     
 }

@@ -53,8 +53,6 @@ public class Time implements ITime {
     public DayInWeek getDayInWeek() {
         int day_of_week = gc.get(GregorianCalendar.DAY_OF_WEEK);
         switch (day_of_week) {
-            case GregorianCalendar.SUNDAY:
-                return DayInWeek.SUN;
             case GregorianCalendar.MONDAY:
                 return DayInWeek.MON;
             case GregorianCalendar.TUESDAY:
@@ -68,7 +66,7 @@ public class Time implements ITime {
             case GregorianCalendar.SATURDAY:
                 return DayInWeek.SAT;
             default:
-                return null;
+                return DayInWeek.SUN;
         }
     }
 
@@ -107,12 +105,12 @@ public class Time implements ITime {
     @Override
     public int compareTo(ITime t) {
         Time time = (Time) t;
-        return time.gc.compareTo(gc);
+        return gc.compareTo(time.gc);
     }
 
     @Override
     public int difference(ITime time) {
         Time t = (Time) time;
-        return (int) ((this.gc.getTimeInMillis() - t.gc.getTimeInMillis()) / 600000);
+        return (int) ((this.gc.getTimeInMillis() - t.gc.getTimeInMillis()) / 60000);
     }
 }

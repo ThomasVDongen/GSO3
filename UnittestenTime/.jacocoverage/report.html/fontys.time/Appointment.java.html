@@ -55,8 +55,8 @@ public class Appointment{
     public boolean addContact(Contact c) {
 <span class="fc bfc" id="L56" title="All 2 branches covered.">        if(contacts.contains(c))</span>
 <span class="fc" id="L57">            return false;</span>
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if(!c.addAppointment(this))</span>
-<span class="nc" id="L59">            return false;</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if(!c.addAppointment(this))</span>
+<span class="fc" id="L59">            return false;</span>
 <span class="fc" id="L60">        contacts.add(c);</span>
 <span class="fc" id="L61">        return true;</span>
     }

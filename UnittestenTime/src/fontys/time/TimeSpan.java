@@ -27,7 +27,7 @@ public class TimeSpan implements ITimeSpan {
      * @param et 
      */
     public TimeSpan(ITime bt, ITime et) {
-        if (bt.compareTo(et) <= 0) {
+        if (bt.compareTo(et) > 0) {
             throw new IllegalArgumentException("begin time "
                     + bt + " must be earlier than end time " + et);
         }
@@ -68,7 +68,7 @@ public class TimeSpan implements ITimeSpan {
                     + et + " must be later then begin time " + bt);
         }
 
-        bt = endTime;
+        et = endTime;
     }
 
     @Override

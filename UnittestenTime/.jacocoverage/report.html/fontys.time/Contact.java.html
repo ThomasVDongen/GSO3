@@ -36,8 +36,8 @@ public class Contact {
      */
     boolean addAppointment(Appointment a) {
 <span class="fc bfc" id="L38" title="All 2 branches covered.">        for(Appointment app : appointments) {</span>
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            if(app.getTimeSpan().intersectionWith(a.getTimeSpan()) != null)</span>
-<span class="nc" id="L40">                return false;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            if(app.getTimeSpan().intersectionWith(a.getTimeSpan()) != null)</span>
+<span class="fc" id="L40">                return false;</span>
 <span class="fc" id="L41">        }</span>
 <span class="fc" id="L42">        appointments.add(a);</span>
 <span class="fc" id="L43">        return true;</span>
